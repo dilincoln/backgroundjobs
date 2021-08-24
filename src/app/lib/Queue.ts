@@ -23,7 +23,7 @@ export default {
 	add(name: string, data: Object) {
 		const queue = this.queues.find((queue) => queue.name === name)
 
-		return queue?.bull.add(data)
+		return queue?.bull.add(data, queue.options)
 	},
 	process() {
 		return this.queues.forEach((queue) => {
